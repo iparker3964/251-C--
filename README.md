@@ -34,12 +34,25 @@ public MediaItem(String name, int year, String title)
 instantiates the media name, year, and title
 
 ###Attributes
-| Attributes        | Description          | Cool  |
+| Attributes        | Description          | 
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| public String mediaName      | name of media | 
+| protected int mediaYear      | The year of the media release        |  
+| protected String mediaTitle | The title of the media      |    
 
+###Methods
+| returns        | Methods          | 
+| ------------- |:-------------:| -----:|
+| String       | getName() | 
+|       | getName returns the value of the mediaName        |  
+| int | getYear()     | 
+|      | returns the value of the mediaYear |
+| String | getTitle()     | 
+|      | returns the value of the mediaTitle |
+| void| setName(String name)     | 
+|      | sets the media name to the current name to the passed parameter |  
+| void | setYear(int year)     | 
+|      | set the media year to the value |  
 ```
 cout << "\t\tInternet Service Provider Menu\n\n"
 		 << " Whats your total amount of hours of internet access";
