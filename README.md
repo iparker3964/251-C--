@@ -52,7 +52,39 @@ instantiates the media name, year, and title
 | void| setName(String name)     | 
 |      | sets the media name to the current name to the passed parameter |  
 | void | setYear(int year)     | 
-|      | set the media year to the value |  
+|      | set the media year to the value passed to the parameter |
+| void | setTitle(String title)     | 
+|      | set the media title to the value passed to the parameter |  
+| String | mediaType()     | 
+|      | abstract method | 
+| String | toString()     | 
+|      | Displays mediaItem information as a string | 
+
+##Class: Album
+This class holds information regarding the albums media
+
+###Constructor
+
+public album(String name, int year, String title, String mediaType)
+
+instantiates the name, year,title, and mediaType
+
+###Attributes
+| Attributes        | Description          | 
+| ------------- |:-------------:| -----:|
+| public String mediaName      | name of media | 
+| public int mediaYear      | The year of the media release        |  
+| public String mediaTitle | The title of the media      |  
+| public String mediaType | The type of media      | 
+
+
+###Methods
+| returns        | Methods          | 
+| ------------- |:-------------:| -----:|
+| String       | mediaType() | 
+|       | returns the media type        |  
+| int | getYear()     | 
+|      | returns the value of the mediaYear |
 ```
 cout << "\t\tInternet Service Provider Menu\n\n"
 		 << " Whats your total amount of hours of internet access";
