@@ -14,11 +14,32 @@
 
 ##Autor: Isaiah Parker
 
-##How to run file
+##How to run program
+
+To execute the program simply download the repository, compile the code, and run it.
+
 The program can be run from the command line prompt. 
 
-##Sample Code
-**Menu / Prompts the user to enter the total amount of hours of internet access**
+##Class Documentation
+Media Manager has 4 classes, 1 of which is abstract.
+
+##Class: MediaItem
+
+This class holds information related to different functions of the media
+
+###Constructor
+
+public MediaItem(String name, int year, String title)
+
+instantiates the media name, year, and title
+
+###Attributes
+| Attributes        | Description          | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 ```
 cout << "\t\tInternet Service Provider Menu\n\n"
 		 << " Whats your total amount of hours of internet access";
