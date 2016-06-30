@@ -1,74 +1,90 @@
 // This program displays a menu and calculates a customer's monthly bill
 // Author: Isaiah Parker
-#include <iostream> 
-#include <iomanip>
-#include <cctype>
-using namespace std;
-int main()
-{
-	char choice; 
-	int hours;
-	double charges;
-	double additional;
+/**
+ *
+ * @author Isaiah
+ */
+public abstract class MediaItem implements Comparable<MediaItem> {
+    protected String mediaName;
+    protected int mediaYear;
+    protected String mediaTitle;
+    
+    @Override
+public abstract int compareTo(MediaItem other);
 
-	const double pakage_A = 9.95, package_B = 14.95, package_C = 19.95;
-	
-	cout << "\t\tInternet Service Provider Menu\n\n"
-		 << " Whats your total amount of hours of internet access: ";
-	cin >> hours;
-	cout << "A. Package A for $9.95 per month fot 10 hours" << endl;
-	cout << "B. Package B for $14.95 per month for 20 hours" << endl;
-	cout << "C. Package C for $19.95 for unlimted access" << endl;
-	cout << "Enter your choice: "<< endl;
-	cin >> choice;
-	choice=toupper(choice);
-	cout << fixed << showpoint << setprecision(2);
+    
+    //create
+    public MediaItem(String name, int year,String title)
+    {
+        this.mediaName = name;
+        this.mediaYear = year;
+        this.mediaTitle = title;
+    }
+    
+    //get
+    public String getName()
+    {
+        return this.mediaName;
+    }
+    public int getYear()
+    {
+        return this.getYear();
+    }
+    public String getTitle()
+    {
+        return this.mediaTitle;
+    }
+    
+    //set
+    public void setName(String name)
+    {
+        this.mediaName = name;
+    }
+    public void setYear(int year)
+    {
+        this.mediaYear = year;
+    }
+    public void setTitle(String title)
+    {
+        this.mediaTitle = title;
+    }
+    
+    
+    //abs
+    public abstract String mediaType();
+    
+    //print 
+    @Override
+    
+    public String toString()
+    {
+        
+        if (this.mediaType().compareTo("Album") ==0)
+           return "Artist Name:\t"+this.mediaName +"\nYear:\t\t"+ this.mediaYear +"\nTitle:\t\t"+ this.mediaTitle + "\nType:\t\t" + this.mediaType()+ "\n\n"  ;
+        else return "Media Name:\t"+this.mediaName +"\nYear:\t\t"+ this.mediaYear +"\nMedia Type:\t"+ this.mediaTitle + "\nType:\t\t" + this.mediaType()+ "\n\n"  ;
+    }
 
-	if (choice == 'A' && hours > 10)
-	{ 
-		cout << "You have a fee of $2.00 per every additional hour";
-		charges = 9.95 + (hours - 10) * 2.00;
-		cout << "Your bill is $" << charges << endl;
-	}
-	else
-	{
-		if (choice == 'A')
-		{
-			charges =  9.95;
-			cout << "Your bill is $" << charges << endl;
-		}
-		else
-		{
-			if ( choice == 'B' && hours > 20)
-			{
-				cout << "You have a fee of $1.00 per additional hour";
-				charges = 14.95 + (hours - 20) * 1.00;
-				cout << "Your bill is $" << charges << endl;
-			}
-			else
-			{
-				if (choice == 'B')
-				{
-					charges = 14.95;
-					cout << "Your bill is $" << charges << endl;
-				}
-				else
-				{
-					if(choice == 'C')
-					{
-						charges = 19.95;
-						cout << "Your bill is $" << charges << endl;
-					}
-					else
-					{
-						if(hours > 744)
-						{
-							cout << "Hours can not exceed 744"<< endl;
-						}
-					}
-				}
-			}
-		}
-	}
-	return 0;
+  /*  @Override
+    
+    public int compareTo(album myAlb) {
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if (myAlb.getClass().equals(this.getClass()))
+       {
+           return this.mediaName.compareTo(myAlb.mediaName);
+           //return 1;
+       }
+           //return 1;
+       else 
+           return -1;
+        //if (this.getName().compareTo(mediaName) >1)
+          //  return 1;
+        //else if (this.getName().compareTo(mediaName)<1)
+          //  return -1;
+        //else
+          //  return 0;
+    }
+    */
+    
+
+    
 }
