@@ -112,7 +112,7 @@ This class contains contains the main method
 ###Attributes
 | Attributes        | Description          | 
 | ------------- |:-------------:| -----:|
-|   ArrayList<MediaItem>    | contains the list of media items | 
+| ArrayList<MediaItem>    | contains the list of media items | 
 
 ###Methods
 | returns        | Methods          | 
