@@ -1,9 +1,10 @@
 
-#Internet-Service-Bill-Calculator
+#Media Manager
 
 ##Project source can be download from https://github.com/iparker3964/251-C--.git
 
-##Program Objective:  
+##Program Objective: 
+This project is a class assignment for Computer Programming II (Java). The program should read in a file containing information about movies and albums. The information regarding movies should be stored in the movie class and the information pertaining to albums should be stored in the appropiate class. The program should allow the user to search a media list by title, year, and type of media (album or movie).
  
 ##Autor: Isaiah Parker
 
