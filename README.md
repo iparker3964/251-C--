@@ -26,7 +26,7 @@ This class holds information related to different functions of the media
 
 public MediaItem(String name, int year, String title)
 
-instantiates the media name, year, and title
+initialize the media name, year, and title
 
 ###Attributes
 | Attributes        | Description          | 
@@ -62,7 +62,7 @@ This class holds information regarding the albums media
 
 public album(String name, int year, String title, String mediaType)
 
-instantiates the name, year,title, and mediaType
+initialize the name, year,title, and mediaType
 
 ###Attributes
 | Attributes        | Description          | 
@@ -88,7 +88,7 @@ The class contains information regarding to the movie media
 
 movie(String name, int year, String title, String mediaType)
 
-initializes the movie name, year, title, and mediaType
+initialize the movie name, year, title, and mediaType
 
 ###Attributes
 | Attributes        | Description          | 
