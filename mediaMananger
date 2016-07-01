@@ -1,0 +1,245 @@
+// This program allows the user to search a media list
+// Author: Isaiah Parker
+
+public abstract class MediaItem implements Comparable<MediaItem> {
+    protected String mediaName;
+    protected int mediaYear;
+    protected String mediaTitle;
+    
+    @Override
+public abstract int compareTo(MediaItem other);
+
+    
+    //create
+    public MediaItem(String name, int year,String title)
+    {
+        this.mediaName = name;
+        this.mediaYear = year;
+        this.mediaTitle = title;
+    }
+    
+    //get
+    public String getName()
+    {
+        return this.mediaName;
+    }
+    public int getYear()
+    {
+        return this.getYear();
+    }
+    public String getTitle()
+    {
+        return this.mediaTitle;
+    }
+    
+    //set
+    public void setName(String name)
+    {
+        this.mediaName = name;
+    }
+    public void setYear(int year)
+    {
+        this.mediaYear = year;
+    }
+    public void setTitle(String title)
+    {
+        this.mediaTitle = title;
+    }
+    
+    
+    //abs
+    public abstract String mediaType();
+    
+    //print 
+    @Override
+    
+    public String toString()
+    {
+        
+        if (this.mediaType().compareTo("Album") ==0)
+           return "Artist Name:\t"+this.mediaName +"\nYear:\t\t"+ this.mediaYear +"\nTitle:\t\t"+ this.mediaTitle + "\nType:\t\t" + this.mediaType()+ "\n\n"  ;
+        else return "Media Name:\t"+this.mediaName +"\nYear:\t\t"+ this.mediaYear +"\nMedia Type:\t"+ this.mediaTitle + "\nType:\t\t" + this.mediaType()+ "\n\n"  ;
+    }
+
+public class album extends MediaItem  {
+    //public ArrayList<MediaItem>  array = new ArrayList<>(); //array for sorting using interface
+    public String mediaName;
+    public int mediaYear;
+    public String mediaTitle;
+    public String mediaType;
+    
+    public album(String name,int year,String title,String type)
+    {
+        super(name,year,title);
+        this.mediaType = type;
+    }
+    
+    @Override
+    public String mediaType()
+    {
+        return mediaType;
+    }
+
+    
+    public int compareTo(MediaItem myAlbum) {
+		// Check whether other is an Album or Movie
+                                    if (myAlbum.getClass().equals(this.getClass()))
+                                    {
+                                        return this.getName().compareTo(myAlbum.getName());
+
+		}
+                                    else return 0;
+
+		
+	}
+   
+  
+}
+
+public class movie extends MediaItem {
+    public String mediaName;
+    public int mediaYear;
+    public String mediaTitle;
+    public String mediaType;
+    
+    //create
+    public movie(String name,int year,String title,String type)
+    {
+        super(name,year,title);
+        this.mediaType = type;
+    }
+    
+    @Override
+     public String mediaType()
+    {
+        return mediaType;
+    }
+
+     
+     public int compareTo(MediaItem myMovie) {
+                                   if (myMovie.getClass().equals(this.getClass()))
+                                    {
+                                        return this.getName().compareTo(myMovie.getName());
+
+		}
+                                    else return 0;
+	}
+}
+
+    
+    public class MovieManager
+{
+    
+    
+    
+    
+    public static void main(String[] args) throws FileNotFoundException, IOException  {
+            ArrayList<MediaItem> mediaList = new ArrayList<>();
+            Scanner userInput = new Scanner(System.in);
+            String searchType = null;
+            
+            System.out.println("********************************");
+            System.out.println("* Enter a letter for following *");
+            System.out.println("*                              *");
+            System.out.println("*    (1) Search by title       *");
+            System.out.println("*    (2) Search by mediatype   *");
+            System.out.println("*    (3) Search by year        *");
+            System.out.println("*    (4) Search by album       *");
+            System.out.println("*    (5) Search by artist      *");
+            System.out.println("********************************\n");
+            searchType = String.valueOf( userInput.next().charAt(0)).toUpperCase();
+            switch (searchType)
+            {
+                case "A":
+                    searchType = "Album";
+                    break;
+                case "M":
+                    searchType = "Movie";
+                    break;
+                default:
+                    System.out.println("Invalid entry");
+                    searchType = "";
+                    break;
+            }
+            
+            FileReader infile = new FileReader("collection.txt");
+            BufferedReader br = new BufferedReader(infile);
+            String myLine;
+        try {
+            int myNum = 0;
+            while ((myLine = br.readLine()   ) != null)
+                if (myLine.compareTo("Album")==0)
+                {
+                    mediaList.add(new album(
+                           br.readLine(),
+                            Integer.parseInt(br.readLine()),
+                            br.readLine(),
+                            "Album"));
+                    
+                }
+                
+                else if(myLine.compareTo("Movie") == 0)
+                {
+                    mediaList.add(new album(
+                            br.readLine(),
+                            Integer.parseInt(br.readLine()),
+                            br.readLine(),
+                            "Movie"));
+                    
+                }
+            //test sort
+            //Collections.sort(mediaList.get(0));
+            Collections.sort(mediaList);
+            //end test sort
+        } 
+        
+        catch (FileNotFoundException FNF)
+        {
+            FNF.printStackTrace();
+        }
+        
+        for (int k=0;k<mediaList.size();k++)
+        {
+            //uncomment later
+            if (mediaList.get(k).mediaType().equals(searchType))
+            System.out.println(mediaList.get(k));
+        }
+        //end test print 
+        
+        //end main
+        }
+
+     public static ArrayList<MediaItem> compareAlbum(ArrayList<MediaItem> array)
+     {
+         ArrayList<MediaItem> sortedList = new ArrayList<>();
+         
+         //first layer of sorting sorts according to name
+         for (int k = 0;k< array.size()-1;k++)
+         {
+             if (array.get(k).getName().compareTo(array.get(k+1).getName()) == 0)
+             {
+                 sortedList.add(array.get(k));
+                 sortedList.add(array.get(k+1));
+             }
+             else if (array.get(k).getName().compareTo(array.get(k+1).getName()) != 0)
+             {
+                 sortedList.add(array.get(k+1));
+             }
+         }
+         
+      return sortedList;       
+     }
+
+    
+}
+
+
+
+
+
+    
+
+
+
+    
+}
